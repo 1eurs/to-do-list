@@ -8,11 +8,13 @@ function App() {
 
 function handleChange(e){
   setTask(e.target.value)
-};
+}
 
 function handleClick(){
-  setNewtask(prevValue=>{return [...prevValue,task]})
-};
+  setNewtask(prevValue=>[...prevValue,task])
+  setTask("");
+}
+
 
 function mapTasksArray(t){
   return <Task task={t}/>
@@ -25,7 +27,7 @@ function mapTasksArray(t){
         <h1>To-Do List</h1>
       </div>
       <div className="form">
-        <input onChange={handleChange} type="text" />
+        <input value={task} onChange={handleChange} type="text" />
         <button onClick={handleClick}>
           <span>Add</span>
         </button>
